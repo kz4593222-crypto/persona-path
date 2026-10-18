@@ -14,7 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      plan_progress: {
+        Row: {
+          completed_at: string
+          day: number
+          device_hash: string
+          profile_key: string
+        }
+        Insert: {
+          completed_at?: string
+          day: number
+          device_hash: string
+          profile_key: string
+        }
+        Update: {
+          completed_at?: string
+          day?: number
+          device_hash?: string
+          profile_key?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
