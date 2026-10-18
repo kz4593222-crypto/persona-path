@@ -54,6 +54,10 @@ import male_calendar_27 from '@/assets/poses/male-calendar-27.jpg';
 import male_calendar_28 from '@/assets/poses/male-calendar-28.jpg';
 import male_calendar_29 from '@/assets/poses/male-calendar-29.jpg';
 import male_calendar_30 from '@/assets/poses/male-calendar-30.jpg';
+import male_calendar_15 from '@/assets/poses/male-calendar-15.jpg';
+import male_calendar_22 from '@/assets/poses/male-calendar-22.jpg';
+import male_calendar_31 from '@/assets/poses/male-calendar-31.jpg';
+import male_calendar_32 from '@/assets/poses/male-calendar-32.jpg';
 import male_calendar_33 from '@/assets/poses/male-calendar-33.jpg';
 import male_calendar_34 from '@/assets/poses/male-calendar-34.jpg';
 import male_calendar_35 from '@/assets/poses/male-calendar-35.jpg';
@@ -111,6 +115,10 @@ import female_calendar_27 from '@/assets/poses/female-calendar-27.jpg';
 import female_calendar_28 from '@/assets/poses/female-calendar-28.jpg';
 import female_calendar_29 from '@/assets/poses/female-calendar-29.jpg';
 import female_calendar_30 from '@/assets/poses/female-calendar-30.jpg';
+import female_calendar_15 from '@/assets/poses/female-calendar-15.jpg';
+import female_calendar_22 from '@/assets/poses/female-calendar-22.jpg';
+import female_calendar_31 from '@/assets/poses/female-calendar-31.jpg';
+import female_calendar_32 from '@/assets/poses/female-calendar-32.jpg';
 import female_calendar_33 from '@/assets/poses/female-calendar-33.jpg';
 import female_calendar_34 from '@/assets/poses/female-onboarding-16.jpg';
 import female_calendar_35 from '@/assets/poses/female-onboarding-17.jpg';
@@ -119,14 +127,17 @@ export const characterPoses = {
     goals: {'abs': male_onboarding_2, 'weight-loss': male_onboarding_3, 'weight-gain': male_onboarding_4, 'strength': male_onboarding_13, 'keep-fit': male_onboarding_34, 'chest': male_onboarding_31, 'flexibility': male_onboarding_8, 'hiit': male_onboarding_9, 'posture': male_onboarding_10, 'v-taper': male_onboarding_11, 'kegel': male_onboarding_30},
     questions: {'equipment:gym': male_onboarding_36, 'equipment:home-equipment': male_onboarding_14, 'equipment:bodyweight': male_onboarding_15, 'age': male_onboarding_7, 'height': male_onboarding_33, 'weight': male_onboarding_18, 'health': male_onboarding_19, 'activity:sitting': male_onboarding_20, 'activity:light': male_onboarding_21, 'activity:moderate': male_onboarding_22, 'activity:very': male_onboarding_23, 'fitness:beginner': male_onboarding_24, 'fitness:intermediate': male_onboarding_25, 'fitness:advanced': male_onboarding_26, 'sleep': male_onboarding_27, 'time': male_onboarding_28, 'complete': male_onboarding_12, 'gender': male_onboarding_1},
     loading: male_calendar_9, summary: male_calendar_14,
+    rest: [male_calendar_15, male_calendar_22, male_calendar_31, male_calendar_32],
     days: [male_calendar_4, male_calendar_5, male_calendar_6, male_calendar_7, male_calendar_8, male_calendar_10, male_calendar_11, male_calendar_12, male_calendar_13, male_calendar_16, male_calendar_17, male_calendar_18, male_calendar_19, male_calendar_20, male_calendar_21, male_calendar_23, male_calendar_24, male_calendar_25, male_calendar_26, male_calendar_27, male_calendar_28, male_calendar_29, male_calendar_30, male_calendar_33, male_calendar_34, male_calendar_35],
   },
   female: {
     goals: {'abs': female_onboarding_2, 'weight-loss': female_onboarding_3, 'weight-gain': female_onboarding_4, 'strength': female_onboarding_13, 'keep-fit': female_onboarding_34, 'chest': female_onboarding_31, 'flexibility': female_onboarding_8, 'hiit': female_onboarding_9, 'posture': female_onboarding_10, 'v-taper': female_onboarding_11, 'kegel': female_onboarding_30},
     questions: {'equipment:gym': female_onboarding_36, 'equipment:home-equipment': female_onboarding_14, 'equipment:bodyweight': female_onboarding_15, 'age': female_onboarding_7, 'height': female_onboarding_33, 'weight': female_onboarding_18, 'health': female_onboarding_19, 'activity:sitting': female_onboarding_20, 'activity:light': female_onboarding_21, 'activity:moderate': female_onboarding_22, 'activity:very': female_onboarding_23, 'fitness:beginner': female_onboarding_24, 'fitness:intermediate': female_onboarding_25, 'fitness:advanced': female_onboarding_26, 'sleep': female_onboarding_27, 'time': female_onboarding_28, 'complete': female_onboarding_12, 'gender': female_onboarding_1},
     loading: female_calendar_9, summary: female_calendar_14,
+    rest: [female_calendar_15, female_calendar_22, female_calendar_31, female_calendar_32],
     days: [female_calendar_4, female_calendar_5, female_calendar_6, female_calendar_7, female_calendar_8, female_calendar_10, female_calendar_11, female_calendar_12, female_calendar_13, female_calendar_16, female_calendar_17, female_calendar_18, female_calendar_19, female_calendar_20, female_calendar_21, female_calendar_23, female_calendar_24, female_calendar_25, female_calendar_26, female_calendar_27, female_calendar_28, female_calendar_29, female_calendar_30, female_calendar_33, female_calendar_34, female_calendar_35],
   },
 };
 export function questionImage(gender: Gender, question: string, option?: string): string { const images: Record<string, string> = characterPoses[gender].questions; return images[option ? `${question}:${option}` : question] ?? images['complete'] ?? ''; }
 export function dayImage(gender: Gender, day: number): string | undefined { if (day % 7 === 0 || day < 1 || day > 30) return undefined; return characterPoses[gender].days[day - 1 - Math.floor(day / 7)]; }
+export function restImage(gender: Gender, day: number): string | undefined { if (day % 7 !== 0 || day < 1 || day > 30) return undefined; return characterPoses[gender].rest[day / 7 - 1]; }
