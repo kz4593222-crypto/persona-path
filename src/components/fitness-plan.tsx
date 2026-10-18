@@ -36,7 +36,7 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
   const selected = goals.find(item => item.id === goal);
   const level = planLevel(answers);
   const startImage = characterPoses[gender].loading;
-  const activeStep = preparationSteps.find(step => progress < step.at + 14) ?? preparationSteps[preparationSteps.length - 1];
+  const activeStep = preparationSteps.find(step => progress < step.at + 14) ?? preparationSteps[preparationSteps.length - 1]!;
 
   if (!complete && !saved.loaded && !saved.error) return <main className="plan-loading"><p role="status">Loading saved progress…</p></main>;
   if (!complete && !returning) return <main className="goal-page question-page"><div className="question-complete"><h1>Complete your profile</h1><Button variant="next" asChild><Link to="/continue" search={{ gender, goal }}>Continue<ArrowRight /></Link></Button></div></main>;
