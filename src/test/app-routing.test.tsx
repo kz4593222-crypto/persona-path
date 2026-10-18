@@ -14,4 +14,12 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+  it("matches the goal page and continuation", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/next").at(-1)?.routeId).toBe("/next");
+    expect(router.matchRoutes("/continue").at(-1)?.routeId).toBe("/continue/");
+    for (const step of ['age', 'height', 'weight', 'health', 'activity', 'fitness', 'sleep', 'time', 'complete']) {
+      expect(router.matchRoutes(`/continue/${step}`).at(-1)?.routeId).toBe('/continue/$step');
+    }
+  });
 });
