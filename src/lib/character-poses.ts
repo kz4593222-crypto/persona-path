@@ -122,6 +122,12 @@ import female_calendar_32 from '@/assets/poses/female-calendar-32.jpg';
 import female_calendar_33 from '@/assets/poses/female-calendar-33.jpg';
 import female_calendar_34 from '@/assets/poses/female-onboarding-16.jpg';
 import female_calendar_35 from '@/assets/poses/female-onboarding-17.jpg';
+import rest_coffee_1 from '@/assets/poses/rest-coffee-1.png';
+import rest_coffee_2 from '@/assets/poses/rest-coffee-2.png';
+import rest_tea_3 from '@/assets/poses/rest-tea-3.png';
+import rest_coffee_4 from '@/assets/poses/rest-coffee-4.png';
+// Rest days show a different cozy coffee/tea illustration per week, shared across genders.
+const restImages = [rest_coffee_1, rest_coffee_2, rest_tea_3, rest_coffee_4];
 export const characterPoses = {
   male: {
     goals: {'abs': male_onboarding_2, 'weight-loss': male_onboarding_3, 'weight-gain': male_onboarding_4, 'strength': male_onboarding_13, 'keep-fit': male_onboarding_34, 'chest': male_onboarding_31, 'flexibility': male_onboarding_8, 'hiit': male_onboarding_9, 'posture': male_onboarding_10, 'v-taper': male_onboarding_11, 'kegel': male_onboarding_30},
@@ -140,4 +146,4 @@ export const characterPoses = {
 };
 export function questionImage(gender: Gender, question: string, option?: string): string { const images: Record<string, string> = characterPoses[gender].questions; return images[option ? `${question}:${option}` : question] ?? images['complete'] ?? ''; }
 export function dayImage(gender: Gender, day: number): string | undefined { if (day % 7 === 0 || day < 1 || day > 30) return undefined; return characterPoses[gender].days[day - 1 - Math.floor(day / 7)]; }
-export function restImage(gender: Gender, day: number): string | undefined { if (day % 7 !== 0 || day < 1 || day > 30) return undefined; return characterPoses[gender].rest[day / 7 - 1]; }
+export function restImage(_gender: Gender, day: number): string | undefined { if (day % 7 !== 0 || day < 1 || day > 30) return undefined; return restImages[day / 7 - 1]; }
