@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useQuestionnaire } from './questionnaire-context';
 import { questions, isValidAnswer } from '@/lib/questionnaire';
 import { goals, type Gender, type GoalId } from '@/lib/goals';
-import { characterPoses, dayImage } from '@/lib/character-poses';
+import { characterPoses, dayImage, restImage } from '@/lib/character-poses';
 import { usePlanProgress } from './use-plan-progress';
 import { planDays, planLevel, planStages } from '@/lib/plan';
 
@@ -90,7 +90,7 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
       <div className="plan-days">{planDays.filter(day => day.stage === index + 1).map(({ day, rest }) => {
         const done = saved.days.includes(day);
         const current = day === currentDay;
-        const image = dayImage(gender, day);
+        const image = rest ? restImage(gender, day) : dayImage(gender, day);
         return <article key={day} className={`plan-day ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
           <span className="plan-day-thumb">{rest ? <Leaf aria-hidden="true" /> : image && <img src={image} alt="" width={768} height={1024} loading="lazy" />}</span>
           <div className="plan-day-copy"><h3>Day {day}</h3><p>{rest ? 'Rest day' : done ? 'Completed' : current ? 'Up next' : 'Workout day'}</p></div>
