@@ -36,7 +36,7 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
   const selected = goals.find(item => item.id === goal);
   const level = planLevel(answers);
   const startImage = characterPoses[gender].loading;
-  const activeStep = preparationSteps.find(step => progress < step.at + 14) ?? preparationSteps[preparationSteps.length - 1]!;
+  const activeStep = preparationSteps.find(step => progress < step.at + 14) ?? preparationSteps.at(-1);
 
   if (!complete && !saved.loaded && !saved.error) return <main className="plan-loading"><p role="status">Loading saved progress…</p></main>;
   if (!complete && !returning) return <main className="goal-page question-page"><div className="question-complete"><h1>Complete your profile</h1><Button variant="next" asChild><Link to="/continue" search={{ gender, goal }}>Continue<ArrowRight /></Link></Button></div></main>;
@@ -55,7 +55,7 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
         <div className="plan-loading-number" role="progressbar" aria-label="Preparing your plan" aria-valuemin={1} aria-valuemax={100} aria-valuenow={progress}>{progress}<span>%</span></div>
         <progress className="plan-loading-track" value={progress} max={100} />
       </div>
-      <p className="plan-loading-status" role="status">{activeStep.label}…</p>
+      <p className="plan-loading-status" role="status">{activeStep?.label}…</p>
       <ul className="plan-loading-checks">
         {preparationSteps.map(step => {
           const done = progress >= step.at + 14;
@@ -91,7 +91,7 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
         const done = saved.days.includes(day);
         const current = day === currentDay;
         const image = rest ? restImage(gender, day) : dayImage(gender, day);
-        return <article key={day} className={`plan-day plan-tint-${rest ? day / 7 : day % 7} ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
+        return <article key={day} className={`plan-day plan-tint-${day} ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
           <span className="plan-day-thumb">{image ? <img src={image} alt="" width={768} height={1024} loading="lazy" className={rest ? 'plan-day-thumb-rest' : ''} /> : <Leaf aria-hidden="true" />}</span>
           <div className="plan-day-copy"><h3>Day {day}</h3><p>{rest ? 'Rest day' : done ? 'Completed' : current ? 'Up next' : 'Workout day'}</p></div>
           <Button variant="outline" className="plan-day-action" aria-label={`${done ? 'Undo completion for' : 'Mark complete'} day ${day}`} aria-pressed={done} disabled={!saved.loaded || saved.saving} onClick={() => void saved.toggle(day)}>{done ? <Check /> : <ArrowRight />}</Button>
