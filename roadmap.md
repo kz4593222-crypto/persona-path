@@ -17,8 +17,10 @@
 - [x] Verify both profile flows, numeric fields, health choices, and final time selection.
 
 # 30-day plan overview
-- [ ] Redesign plan-loading screen with sequential profile-check status text (health, height/weight, goal, activity, sleep, workout time).
-- [ ] Redesign plan overview page to match reference: bold header, percent progress bar, week sections, day cards with thumbnail pose, subtitle and round action button.
+- [x] Redesign plan-loading screen with sequential profile-check status text (health, height/weight, goal, activity, sleep, workout time).
+- [x] Redesign plan overview page to match reference: bold header, percent progress bar, week sections, day cards with thumbnail pose, subtitle and round action button.
+- [ ] Preserve day boxes, deepen distinct daily colors, and enlarge transparent workout/coffee imagery above the card edge.
+- [ ] Replace Day 16 shopping bags with a workout pose and verify both profiles.
 - [x] Add final Next loading from 1–100% and a profile-matched overview.
 - [x] Design 30 illustrated days with weekly rest and no durations or exercise routines.
 - [x] Verify both complete questionnaire flows and plan display.
