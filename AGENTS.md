@@ -17,5 +17,5 @@
 - Keep questionnaire definitions and answer validation in a browser-safe module, with shared question rendering and layout-scoped React state; this presentation-only flow retains answers across question navigation without storing sensitive health or body measurements in URLs or persistent storage.
 - Keep health-choice illustrations in a dedicated browser-safe gender mapping and scope the two-column image-card styling to the health question so other questionnaires retain their layout and validation.
 - Render the presentation-only plan and simulated preparation at the questionnaire completion child, using the existing scoped answers; keep day scheduling in a browser-safe module and do not imply that exercise generation exists.
-- Assign illustration assets to distinct screen slots in the browser-safe character pose module; use dedicated transparent day cutouts with overflow portrait framing so onboarding art stays untouched.
+- Assign illustration assets to distinct screen slots in the browser-safe character pose module; use dedicated cleaned transparent day cutouts with contained portrait framing so onboarding art stays untouched.
 - Persist only day completion in Cloud through server functions scoped by a server-issued HttpOnly device capability; deny direct Data API access and keep questionnaire answers in memory to avoid storing sensitive measurements.

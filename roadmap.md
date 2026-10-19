@@ -17,6 +17,8 @@
 - [x] Verify both profile flows, numeric fields, health choices, and final time selection.
 
 # 30-day plan overview
+- [ ] Clean day-image white residue and contain portraits/coffee inside unchanged boxes with seven repeating goal colors.
+- [ ] Verify both profiles, weekly color repetition, and mobile/desktop plan framing.
 - [x] Redesign plan-loading screen with sequential profile-check status text (health, height/weight, goal, activity, sleep, workout time).
 - [x] Redesign plan overview page to match reference: bold header, percent progress bar, week sections, day cards with thumbnail pose, subtitle and round action button.
 - [x] Preserve day boxes, deepen distinct daily colors, and enlarge transparent workout/coffee imagery above the card edge.
