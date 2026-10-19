@@ -439,7 +439,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
 .plan-tint-30 { background: var(--plan-tint-30); }
 .plan-day-thumb { position: relative; flex-shrink: 0; width: 84px; height: 84px; display: grid; place-items: center; pointer-events: none; }
 .plan-day-thumb img { position: absolute; left: -10px; bottom: -8px; width: 104px; height: 136px; max-width: none; object-fit: cover; object-position: center top; mask-image: linear-gradient(to bottom, var(--plan-on-teal) 72%, transparent 100%); }
-.plan-day-thumb img.plan-day-thumb-rest { left: -12px; bottom: 0; width: 108px; height: 122px; object-fit: contain; mask-image: none; }
+.plan-day-thumb img.plan-day-thumb-rest { left: -12px; bottom: 22px; width: 108px; height: 122px; object-fit: contain; mask-image: none; }
 .plan-day-thumb svg { width: 30px; height: 30px; color: var(--plan-teal); }
 .plan-day-copy { flex: 1; min-width: 0; }
 .plan-day-copy h3 { margin: 0; font-size: 24px; font-weight: 1000; line-height: 1.15; }
