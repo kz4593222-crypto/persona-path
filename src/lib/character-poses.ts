@@ -96,13 +96,13 @@ import female_calendar_6 from '@/assets/day-cutouts/female_calendar_6.png.asset.
 import female_calendar_7 from '@/assets/day-cutouts/female_calendar_7.png.asset.json';
 import female_calendar_8 from '@/assets/day-cutouts/female_calendar_8-clean.png.asset.json';
 import female_calendar_9 from '@/assets/poses/female-calendar-09.jpg';
-import female_calendar_10 from '@/assets/day-cutouts/female_calendar_10-clean.png.asset.json';
+import female_calendar_10 from '@/assets/day-cutouts/female_calendar_10-tidy.png.asset.json';
 import female_calendar_11 from '@/assets/day-cutouts/female_calendar_11.png.asset.json';
 import female_calendar_12 from '@/assets/day-cutouts/female_calendar_12-clean.png.asset.json';
 import female_calendar_13 from '@/assets/day-cutouts/female_calendar_13-clean.png.asset.json';
 import female_calendar_14 from '@/assets/poses/female-calendar-14.jpg';
 import female_calendar_16 from '@/assets/day-cutouts/female_calendar_16.png.asset.json';
-import female_calendar_17 from '@/assets/day-cutouts/female_calendar_17.png.asset.json';
+import female_calendar_17 from '@/assets/day-cutouts/female_calendar_17-tidy.png.asset.json';
 import female_calendar_18 from '@/assets/day-cutouts/female_calendar_18.png.asset.json';
 import female_calendar_19 from '@/assets/day-cutouts/female_calendar_19-clean.png.asset.json';
 import female_calendar_20 from '@/assets/day-cutouts/female_calendar_20-clean.png.asset.json';
@@ -113,7 +113,7 @@ import female_calendar_25 from '@/assets/day-cutouts/female_calendar_25-clean.pn
 import female_calendar_26 from '@/assets/day-cutouts/female_calendar_26.png.asset.json';
 import female_calendar_27 from '@/assets/day-cutouts/female_calendar_27.png.asset.json';
 import female_calendar_28 from '@/assets/day-cutouts/female_calendar_28-clean.png.asset.json';
-import female_calendar_29 from '@/assets/day-cutouts/female_calendar_29.png.asset.json';
+import female_calendar_29 from '@/assets/day-cutouts/female_calendar_29-tidy.png.asset.json';
 import female_calendar_30 from '@/assets/day-cutouts/female_calendar_30-clean.png.asset.json';
 import female_calendar_15 from '@/assets/poses/female-calendar-15.jpg';
 import female_calendar_22 from '@/assets/poses/female-calendar-22.jpg';
