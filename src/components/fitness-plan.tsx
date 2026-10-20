@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowLeft, ArrowRight, Check, Leaf, Zap, Flame, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,7 @@ import { useQuestionnaire } from './questionnaire-context';
 import { questions, isValidAnswer } from '@/lib/questionnaire';
 import { goals, type Gender, type GoalId } from '@/lib/goals';
 import { characterPoses, dayImage, restImage } from '@/lib/character-poses';
+import { dayFrame } from '@/lib/day-framing';
 import { usePlanProgress } from './use-plan-progress';
 import { planDays, planLevel, planStages, planDayColor } from '@/lib/plan';
 
