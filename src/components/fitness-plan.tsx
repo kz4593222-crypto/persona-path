@@ -7,7 +7,7 @@ import { questions, isValidAnswer } from '@/lib/questionnaire';
 import { goals, type Gender, type GoalId } from '@/lib/goals';
 import { characterPoses, dayImage, restImage } from '@/lib/character-poses';
 import { usePlanProgress } from './use-plan-progress';
-import { planDays, planLevel, planStages } from '@/lib/plan';
+import { planDays, planLevel, planStages, planDayColor } from '@/lib/plan';
 
 const preparationSteps = [
   { at: 5, label: 'Checking your health concerns' },
@@ -91,8 +91,8 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
         const done = saved.days.includes(day);
         const current = day === currentDay;
         const image = rest ? restImage(gender, day) : dayImage(gender, day);
-        return <article key={day} className={`plan-day plan-tint-${day} ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
-          <span className="plan-day-thumb">{image ? <img src={image} alt="" width={768} height={1024} loading="lazy" className={rest ? 'plan-day-thumb-rest' : ''} /> : <Leaf aria-hidden="true" />}</span>
+        return <article key={day} className={`plan-day plan-tint-${planDayColor(day)} ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
+          <span className="plan-day-thumb">{image ? <img src={image} alt="" width={768} height={1024} loading="lazy" className={rest ? 'plan-day-thumb-rest' : ''} onLoad={event => { const img = event.currentTarget; img.classList.toggle('plan-day-thumb-wide', !rest && img.naturalWidth > img.naturalHeight); }} /> : <Leaf aria-hidden="true" />}</span>
           <div className="plan-day-copy"><h3>Day {day}</h3><p>{rest ? 'Rest day' : done ? 'Completed' : current ? 'Up next' : 'Workout day'}</p></div>
           <Button variant="outline" className="plan-day-action" aria-label={`${done ? 'Undo completion for' : 'Mark complete'} day ${day}`} aria-pressed={done} disabled={!saved.loaded || saved.saving} onClick={() => void saved.toggle(day)}>{done ? <Check /> : <ArrowRight />}</Button>
         </article>;

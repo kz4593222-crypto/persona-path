@@ -8,6 +8,10 @@ export const planDays = Array.from({ length: 30 }, (_, index) => ({
 
 export const planStages = ['Start Strong', 'Find Your Rhythm', 'Build Momentum', 'Keep Going', 'Finish Strong'];
 
+export function planDayColor(day: number) {
+  return (day - 1) % 7 + 1;
+}
+
 export function planLevel(answers: Answers) {
   if (answers['fitness'] === 'advanced') return { label: 'Advanced', intensity: 3 };
   if (answers['fitness'] === 'intermediate') return { label: 'Intermediate', intensity: 2 };
