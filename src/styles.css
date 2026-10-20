@@ -392,7 +392,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
 .plan-tint-6 { background: var(--plan-tint-6); }
 .plan-tint-7 { background: var(--plan-tint-7); }
 .plan-day-thumb { position: relative; flex-shrink: 0; width: 84px; height: 84px; display: grid; place-items: center; pointer-events: none; mask-image: linear-gradient(to bottom, var(--goal-on-color) 66%, transparent 100%); }
-.plan-day-thumb img { position: absolute; left: -10px; top: -8px; width: 104px; height: 136px; max-width: none; object-fit: cover; object-position: center top; }
+.plan-day-thumb img { position: absolute; left: -10px; top: -8px; width: 104px; height: 104px; max-width: none; object-fit: contain; object-position: center top; }
 .plan-day-rest .plan-day-thumb { mask-image: none; }
 .plan-day-thumb img.plan-day-thumb-rest { left: -8px; top: -6px; width: 100px; height: 96px; object-fit: contain; }
 .plan-day-thumb img.plan-day-thumb-wide { top: 0; height: 84px; object-fit: contain; }
@@ -437,7 +437,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   .plan-week > h2 { font-size: 30px; }
   .plan-day { min-height: 122px; padding: 14px 18px; gap: 18px; }
   .plan-day-thumb { width: 96px; height: 96px; }
-  .plan-day-thumb img { width: 120px; height: 154px; left: -12px; }
+  .plan-day-thumb img { width: 120px; height: 120px; left: -12px; }
   .plan-day-thumb img.plan-day-thumb-rest { width: 112px; height: 108px; left: -8px; }
   .plan-day-thumb img.plan-day-thumb-wide { height: 96px; }
   .plan-day-copy h3 { font-size: 28px; }
