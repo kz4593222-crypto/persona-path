@@ -391,11 +391,11 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
 .plan-tint-5 { background: var(--plan-tint-5); }
 .plan-tint-6 { background: var(--plan-tint-6); }
 .plan-tint-7 { background: var(--plan-tint-7); }
-.plan-day-thumb { position: relative; flex-shrink: 0; width: 84px; height: 84px; display: grid; place-items: center; pointer-events: none; mask-image: linear-gradient(to bottom, var(--goal-on-color) 85%, transparent 100%); }
-.plan-day-thumb img { position: absolute; left: -10px; top: 0; width: 104px; height: 112px; max-width: none; object-fit: cover; object-position: center top; }
-.plan-day-rest .plan-day-thumb { mask-image: none; }
-.plan-day-thumb img.plan-day-thumb-rest { left: -8px; top: -6px; width: 100px; height: 96px; object-fit: contain; }
-.plan-day-thumb img.plan-day-thumb-wide { top: 0; height: 84px; object-fit: contain; }
+/* Picture slot spans the card's full inner height without changing the card size; per-image frames keep every shown body part inside. */
+.plan-day-thumb { position: relative; flex-shrink: 0; align-self: stretch; width: 96px; min-height: 84px; margin: -12px 0 -12px -4px; overflow: hidden; display: grid; place-items: center; pointer-events: none; }
+.plan-day-thumb-fade { mask-image: linear-gradient(to bottom, var(--goal-on-color) 72%, transparent 100%); }
+.plan-day-thumb img { position: absolute; left: var(--frame-x, 0%); top: var(--frame-y, 0%); width: var(--frame-w, 100%); height: auto; max-width: none; }
+.plan-day-thumb img.plan-day-thumb-rest { left: 6px; top: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: contain; }
 .plan-day-thumb svg { width: 30px; height: 30px; color: var(--plan-teal); }
 .plan-day-copy { flex: 1; min-width: 0; }
 .plan-day-copy h3 { margin: 0; font-size: 24px; font-weight: 1000; line-height: 1.15; }
@@ -436,10 +436,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   .plan-title { font-size: 52px; }
   .plan-week > h2 { font-size: 30px; }
   .plan-day { min-height: 122px; padding: 14px 18px; gap: 18px; }
-  .plan-day-thumb { width: 96px; height: 96px; }
-  .plan-day-thumb img { width: 120px; height: 128px; left: -12px; }
-  .plan-day-thumb img.plan-day-thumb-rest { width: 112px; height: 108px; left: -8px; }
-  .plan-day-thumb img.plan-day-thumb-wide { height: 96px; }
+  .plan-day-thumb { width: 108px; margin: -14px 0 -14px -6px; }
   .plan-day-copy h3 { font-size: 28px; }
   .plan-loading-hero > img { width: 140px; height: 175px; }
   .plan-loading-hero h1 { font-size: 31px; }
