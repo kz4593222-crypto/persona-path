@@ -91,7 +91,7 @@ import female_onboarding_33 from '@/assets/poses/female-onboarding-33.jpg';
 import female_onboarding_34 from '@/assets/poses/female-onboarding-34.jpg';
 import female_onboarding_36 from '@/assets/poses/female-onboarding-36.jpg';
 import female_calendar_4 from '@/assets/day-cutouts/female_calendar_4-clean.png.asset.json';
-import female_calendar_5 from '@/assets/day-cutouts/female_calendar_5-tidy.png.asset.json';
+import female_calendar_5 from '@/assets/day-cutouts/female_calendar_5-clean.png.asset.json';
 import female_calendar_6 from '@/assets/day-cutouts/female_calendar_6.png.asset.json';
 import female_calendar_7 from '@/assets/day-cutouts/female_calendar_7.png.asset.json';
 import female_calendar_8 from '@/assets/day-cutouts/female_calendar_8-clean.png.asset.json';
