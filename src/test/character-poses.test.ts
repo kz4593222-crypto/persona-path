@@ -16,3 +16,15 @@ describe('Distinct illustration slots', () => {
     });
   }
 });
+import { dayFrame } from '@/lib/day-framing';
+describe('Day card framing', () => {
+  it('gives every workout day picture a frame that starts inside the card', () => {
+    for (const gender of ['male', 'female'] as const) for (let day = 1; day <= 30; day++) {
+      const image = dayImage(gender, day);
+      if (!image) continue;
+      const frame = dayFrame(image);
+      expect(frame, `${gender} day ${day}`).toBeDefined();
+      expect(frame!.y).toBeGreaterThanOrEqual(0);
+    }
+  });
+});

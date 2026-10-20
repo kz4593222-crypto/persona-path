@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowLeft, ArrowRight, Check, Leaf, Zap, Flame, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,7 @@ import { useQuestionnaire } from './questionnaire-context';
 import { questions, isValidAnswer } from '@/lib/questionnaire';
 import { goals, type Gender, type GoalId } from '@/lib/goals';
 import { characterPoses, dayImage, restImage } from '@/lib/character-poses';
+import { dayFrame } from '@/lib/day-framing';
 import { usePlanProgress } from './use-plan-progress';
 import { planDays, planLevel, planStages, planDayColor } from '@/lib/plan';
 
@@ -91,8 +92,10 @@ export function FitnessPlan({ gender, goal }: { gender: Gender; goal: GoalId }) 
         const done = saved.days.includes(day);
         const current = day === currentDay;
         const image = rest ? restImage(gender, day) : dayImage(gender, day);
+        const frame = !rest && image ? dayFrame(image) : undefined;
+        const frameStyle = frame ? { '--frame-w': `${frame.w}%`, '--frame-x': `${frame.x}%`, '--frame-y': `${frame.y}%` } as CSSProperties : undefined;
         return <article key={day} className={`plan-day plan-tint-${planDayColor(day)} ${current ? 'plan-day-current' : ''} ${rest ? 'plan-day-rest' : ''} ${done ? 'plan-day-done' : ''}`} aria-label={`Day ${day}${rest ? ', rest day' : ''}${done ? ', completed' : ''}`}>
-          <span className="plan-day-thumb">{image ? <img src={image} alt="" width={768} height={1024} loading="lazy" className={rest ? 'plan-day-thumb-rest' : ''} onLoad={event => { const img = event.currentTarget; img.classList.toggle('plan-day-thumb-wide', !rest && (img.naturalWidth > img.naturalHeight || img.naturalHeight > img.naturalWidth * 2)); }} /> : <Leaf aria-hidden="true" />}</span>
+          <span className={`plan-day-thumb ${frame?.fade ? 'plan-day-thumb-fade' : ''}`}>{image ? <img src={image} alt="" loading="lazy" style={frameStyle} className={rest ? 'plan-day-thumb-rest' : ''} /> : <Leaf aria-hidden="true" />}</span>
           <div className="plan-day-copy"><h3>Day {day}</h3><p>{rest ? 'Rest day' : done ? 'Completed' : current ? 'Up next' : 'Workout day'}</p></div>
           <Button variant="outline" className="plan-day-action" aria-label={`${done ? 'Undo completion for' : 'Mark complete'} day ${day}`} aria-pressed={done} disabled={!saved.loaded || saved.saving} onClick={() => void saved.toggle(day)}>{done ? <Check /> : <ArrowRight />}</Button>
         </article>;
