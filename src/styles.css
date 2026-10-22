@@ -348,7 +348,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   --plan-aqua-soft: oklch(0.96 0.025 185);
   --plan-rest: oklch(0.95 0.035 145);
   /* Goal colours, lightened slightly for the day boxes while keeping white text readable. */
-  --plan-tint-1: color-mix(in oklab, var(--goal-active) 60%, var(--goal-on-color));
+  --plan-tint-1: color-mix(in oklab, var(--goal-active) 50%, var(--goal-on-color));
   --plan-tint-2: color-mix(in oklab, var(--goal-weight-loss) 60%, var(--goal-on-color));
   --plan-tint-3: color-mix(in oklab, var(--goal-core) 60%, var(--goal-on-color));
   --plan-tint-4: color-mix(in oklab, var(--goal-posture) 60%, var(--goal-on-color));
