@@ -8,8 +8,9 @@ export const planDays = Array.from({ length: 30 }, (_, index) => ({
 
 export const planStages = ['Start Strong', 'Find Your Rhythm', 'Build Momentum', 'Keep Going', 'Finish Strong'];
 
-export function planDayColor(day: number) {
-  return (day - 1) % 7 + 1;
+// Every day box shares the Day 1 colour.
+export function planDayColor(_day: number) {
+  return 1;
 }
 
 export function planLevel(answers: Answers) {
