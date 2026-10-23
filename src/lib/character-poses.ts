@@ -1,3 +1,4 @@
+import { dayPortraits } from './day-portraits';
 import type { Gender } from './goals';
 // Each asset belongs to exactly one screen slot, never a reusable exercise category.
 import male_onboarding_1 from '@/assets/poses/male-onboarding-01.jpg';
@@ -29,38 +30,12 @@ import male_onboarding_31 from '@/assets/poses/male-onboarding-31.jpg';
 import male_onboarding_33 from '@/assets/poses/male-onboarding-33.jpg';
 import male_onboarding_34 from '@/assets/poses/male-onboarding-34.jpg';
 import male_onboarding_36 from '@/assets/poses/male-onboarding-36.jpg';
-import male_calendar_4 from '@/assets/day-cutouts/male_calendar_4-edge.png.asset.json';
-import male_calendar_5 from '@/assets/day-cutouts/male_calendar_5-edge.png.asset.json';
-import male_calendar_6 from '@/assets/day-cutouts/male_calendar_6-edge.png.asset.json';
-import male_calendar_7 from '@/assets/day-cutouts/male_calendar_7-edge.png.asset.json';
-import male_calendar_8 from '@/assets/day-cutouts/male_calendar_8-edge.png.asset.json';
 import male_calendar_9 from '@/assets/poses/male-calendar-09.jpg';
-import male_calendar_10 from '@/assets/day-cutouts/male_calendar_10-edge.png.asset.json';
-import male_calendar_11 from '@/assets/day-cutouts/male_calendar_11-edge.png.asset.json';
-import male_calendar_12 from '@/assets/day-cutouts/male_calendar_12-edge.png.asset.json';
-import male_calendar_13 from '@/assets/day-cutouts/male_calendar_13-edge.png.asset.json';
 import male_calendar_14 from '@/assets/poses/male-calendar-14.jpg';
-import male_calendar_16 from '@/assets/day-cutouts/male_calendar_16-edge.png.asset.json';
-import male_calendar_17 from '@/assets/day-cutouts/male_calendar_17-edge.png.asset.json';
-import male_calendar_18 from '@/assets/day-cutouts/male_calendar_18-edge.png.asset.json';
-import male_calendar_19 from '@/assets/day-cutouts/male_calendar_19-edge.png.asset.json';
-import male_calendar_20 from '@/assets/day-cutouts/male_calendar_20-edge.png.asset.json';
-import male_calendar_21 from '@/assets/day-cutouts/male_calendar_21-edge.png.asset.json';
-import male_calendar_23 from '@/assets/day-cutouts/male_calendar_23-edge.png.asset.json';
-import male_calendar_24 from '@/assets/day-cutouts/male_calendar_24-edge.png.asset.json';
-import male_calendar_25 from '@/assets/day-cutouts/male_calendar_25-edge.png.asset.json';
-import male_calendar_26 from '@/assets/day-cutouts/male_calendar_26-edge.png.asset.json';
-import male_calendar_27 from '@/assets/day-cutouts/male_calendar_27-edge.png.asset.json';
-import male_calendar_28 from '@/assets/day-cutouts/male_calendar_28-edge.png.asset.json';
-import male_calendar_29 from '@/assets/day-cutouts/male_calendar_29-edge.png.asset.json';
-import male_calendar_30 from '@/assets/day-cutouts/male_calendar_30-edge.png.asset.json';
 import male_calendar_15 from '@/assets/poses/male-calendar-15.jpg';
 import male_calendar_22 from '@/assets/poses/male-calendar-22.jpg';
 import male_calendar_31 from '@/assets/poses/male-calendar-31.jpg';
 import male_calendar_32 from '@/assets/poses/male-calendar-32.jpg';
-import male_calendar_33 from '@/assets/day-cutouts/male_calendar_33-edge.png.asset.json';
-import male_calendar_34 from '@/assets/day-cutouts/male_calendar_34-edge.png.asset.json';
-import male_calendar_35 from '@/assets/day-cutouts/male_calendar_35-edge.png.asset.json';
 import female_onboarding_1 from '@/assets/poses/female-onboarding-01.jpg';
 import female_onboarding_2 from '@/assets/poses/female-onboarding-02.jpg';
 import female_onboarding_3 from '@/assets/poses/female-onboarding-03.jpg';
@@ -90,38 +65,12 @@ import female_onboarding_31 from '@/assets/poses/female-onboarding-31.jpg';
 import female_onboarding_33 from '@/assets/poses/female-onboarding-33.jpg';
 import female_onboarding_34 from '@/assets/poses/female-onboarding-34.jpg';
 import female_onboarding_36 from '@/assets/poses/female-onboarding-36.jpg';
-import female_calendar_4 from '@/assets/day-cutouts/female_calendar_4-edge.png.asset.json';
-import female_calendar_5 from '@/assets/day-cutouts/female_calendar_5-edge.png.asset.json';
-import female_calendar_6 from '@/assets/day-cutouts/female_calendar_6-edge.png.asset.json';
-import female_calendar_7 from '@/assets/day-cutouts/female_calendar_7-edge.png.asset.json';
-import female_calendar_8 from '@/assets/day-cutouts/female_calendar_8-edge.png.asset.json';
 import female_calendar_9 from '@/assets/poses/female-calendar-09.jpg';
-import female_calendar_10 from '@/assets/day-cutouts/female_calendar_10-edge.png.asset.json';
-import female_calendar_11 from '@/assets/day-cutouts/female_calendar_11-edge.png.asset.json';
-import female_calendar_12 from '@/assets/day-cutouts/female_calendar_12-edge.png.asset.json';
-import female_calendar_13 from '@/assets/day-cutouts/female_calendar_13-edge.png.asset.json';
 import female_calendar_14 from '@/assets/poses/female-calendar-14.jpg';
-import female_calendar_16 from '@/assets/day-cutouts/female_calendar_16-edge.png.asset.json';
-import female_calendar_17 from '@/assets/day-cutouts/female_calendar_17-edge.png.asset.json';
-import female_calendar_18 from '@/assets/day-cutouts/female_calendar_18-edge.png.asset.json';
-import female_calendar_19 from '@/assets/day-cutouts/female_calendar_19-edge.png.asset.json';
-import female_calendar_20 from '@/assets/day-cutouts/female_calendar_20-edge.png.asset.json';
-import female_calendar_21 from '@/assets/day-cutouts/female_calendar_21-edge.png.asset.json';
-import female_calendar_23 from '@/assets/day-cutouts/female_calendar_23-edge.png.asset.json';
-import female_calendar_24 from '@/assets/day-cutouts/female_calendar_24-edge.png.asset.json';
-import female_calendar_25 from '@/assets/day-cutouts/female_calendar_25-edge.png.asset.json';
-import female_calendar_26 from '@/assets/day-cutouts/female_calendar_26-edge.png.asset.json';
-import female_calendar_27 from '@/assets/day-cutouts/female_calendar_27-edge.png.asset.json';
-import female_calendar_28 from '@/assets/day-cutouts/female_calendar_28-edge.png.asset.json';
-import female_calendar_29 from '@/assets/day-cutouts/female_calendar_29-edge.png.asset.json';
-import female_calendar_30 from '@/assets/day-cutouts/female_calendar_30-edge.png.asset.json';
 import female_calendar_15 from '@/assets/poses/female-calendar-15.jpg';
 import female_calendar_22 from '@/assets/poses/female-calendar-22.jpg';
 import female_calendar_31 from '@/assets/poses/female-calendar-31.jpg';
 import female_calendar_32 from '@/assets/poses/female-calendar-32.jpg';
-import female_calendar_33 from '@/assets/day-cutouts/female_calendar_33-edge.png.asset.json';
-import female_calendar_34 from '@/assets/day-cutouts/female_calendar_34-edge.png.asset.json';
-import female_calendar_35 from '@/assets/day-cutouts/female_calendar_35-edge.png.asset.json';
 import rest_coffee_1 from '@/assets/poses/rest-coffee-1.png';
 import rest_coffee_2 from '@/assets/poses/rest-coffee-2.png';
 import rest_tea_3 from '@/assets/poses/rest-tea-3.png';
@@ -134,14 +83,14 @@ export const characterPoses = {
     questions: {'equipment:gym': male_onboarding_36, 'equipment:home-equipment': male_onboarding_14, 'equipment:bodyweight': male_onboarding_15, 'age': male_onboarding_7, 'height': male_onboarding_33, 'weight': male_onboarding_18, 'health': male_onboarding_19, 'activity:sitting': male_onboarding_20, 'activity:light': male_onboarding_21, 'activity:moderate': male_onboarding_22, 'activity:very': male_onboarding_23, 'fitness:beginner': male_onboarding_24, 'fitness:intermediate': male_onboarding_25, 'fitness:advanced': male_onboarding_26, 'sleep': male_onboarding_27, 'time': male_onboarding_28, 'complete': male_onboarding_12, 'gender': male_onboarding_1},
     loading: male_calendar_9, summary: male_calendar_14,
     rest: [male_calendar_15, male_calendar_22, male_calendar_31, male_calendar_32],
-    days: [male_calendar_4.url, male_calendar_5.url, male_calendar_6.url, male_calendar_7.url, male_calendar_8.url, male_calendar_10.url, male_calendar_11.url, male_calendar_12.url, male_calendar_13.url, male_calendar_16.url, male_calendar_17.url, male_calendar_18.url, male_calendar_19.url, male_calendar_20.url, male_calendar_21.url, male_calendar_23.url, male_calendar_24.url, male_calendar_25.url, male_calendar_26.url, male_calendar_27.url, male_calendar_28.url, male_calendar_29.url, male_calendar_30.url, male_calendar_33.url, male_calendar_34.url, male_calendar_35.url],
+    days: dayPortraits.male,
   },
   female: {
     goals: {'abs': female_onboarding_2, 'weight-loss': female_onboarding_3, 'weight-gain': female_onboarding_4, 'strength': female_onboarding_13, 'keep-fit': female_onboarding_34, 'chest': female_onboarding_31, 'flexibility': female_onboarding_8, 'hiit': female_onboarding_9, 'posture': female_onboarding_10, 'v-taper': female_onboarding_11, 'kegel': female_onboarding_30},
     questions: {'equipment:gym': female_onboarding_36, 'equipment:home-equipment': female_onboarding_14, 'equipment:bodyweight': female_onboarding_15, 'age': female_onboarding_7, 'height': female_onboarding_33, 'weight': female_onboarding_18, 'health': female_onboarding_19, 'activity:sitting': female_onboarding_20, 'activity:light': female_onboarding_21, 'activity:moderate': female_onboarding_22, 'activity:very': female_onboarding_23, 'fitness:beginner': female_onboarding_24, 'fitness:intermediate': female_onboarding_25, 'fitness:advanced': female_onboarding_26, 'sleep': female_onboarding_27, 'time': female_onboarding_28, 'complete': female_onboarding_12, 'gender': female_onboarding_1},
     loading: female_calendar_9, summary: female_calendar_14,
     rest: [female_calendar_15, female_calendar_22, female_calendar_31, female_calendar_32],
-    days: [female_calendar_4.url, female_calendar_5.url, female_calendar_6.url, female_calendar_7.url, female_calendar_8.url, female_calendar_10.url, female_calendar_11.url, female_calendar_12.url, female_calendar_13.url, female_calendar_16.url, female_calendar_17.url, female_calendar_18.url, female_calendar_19.url, female_calendar_20.url, female_calendar_21.url, female_calendar_23.url, female_calendar_24.url, female_calendar_25.url, female_calendar_26.url, female_calendar_27.url, female_calendar_28.url, female_calendar_29.url, female_calendar_30.url, female_calendar_33.url, female_calendar_34.url, female_calendar_35.url],
+    days: dayPortraits.female,
   },
 };
 export function questionImage(gender: Gender, question: string, option?: string): string { const images: Record<string, string> = characterPoses[gender].questions; return images[option ? `${question}:${option}` : question] ?? images['complete'] ?? ''; }
