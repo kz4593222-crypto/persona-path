@@ -26,6 +26,11 @@
 - [x] Add final Next loading from 1–100% and a profile-matched overview.
 - [x] Design 30 illustrated days with weekly rest and no durations or exercise routines.
 - [x] Verify both complete questionnaire flows and plan display.
+# Reference-style day characters
+- [ ] Create 52 new half-body day characters (26 per profile) with reference-style poses, expressions, distinct faces, clothes and actions.
+- [ ] Clean, frame and wire them into the unchanged day boxes with a soft aqua box color.
+- [ ] Verify both profiles on mobile and desktop.
+
 # Unique character poses
 - [x] Replace reused pictures with distinct poses while preserving character identity.
 - [x] Use contained character framing across onboarding and workout day cards.
