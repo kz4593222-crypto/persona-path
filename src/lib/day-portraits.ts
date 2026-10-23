@@ -1,0 +1,57 @@
+// Dedicated day portraits; onboarding and goal art remain independent.
+import male1 from '@/assets/day-people/portraits/male-01.webp';
+import male2 from '@/assets/day-people/portraits/male-02.webp';
+import male3 from '@/assets/day-people/portraits/male-03.webp';
+import male4 from '@/assets/day-people/portraits/male-04.webp';
+import male5 from '@/assets/day-people/portraits/male-05.webp';
+import male6 from '@/assets/day-people/portraits/male-06.webp';
+import male7 from '@/assets/day-people/portraits/male-07.webp';
+import male8 from '@/assets/day-people/portraits/male-08.webp';
+import male9 from '@/assets/day-people/portraits/male-09.webp';
+import male10 from '@/assets/day-people/portraits/male-10.webp';
+import male11 from '@/assets/day-people/portraits/male-11.webp';
+import male12 from '@/assets/day-people/portraits/male-12.webp';
+import male13 from '@/assets/day-people/portraits/male-13.webp';
+import male14 from '@/assets/day-people/portraits/male-14.webp';
+import male15 from '@/assets/day-people/portraits/male-15.webp';
+import male16 from '@/assets/day-people/portraits/male-16.webp';
+import male17 from '@/assets/day-people/portraits/male-17.webp';
+import male18 from '@/assets/day-people/portraits/male-18.webp';
+import male19 from '@/assets/day-people/portraits/male-19.webp';
+import male20 from '@/assets/day-people/portraits/male-20.webp';
+import male21 from '@/assets/day-people/portraits/male-21.webp';
+import male22 from '@/assets/day-people/portraits/male-22.webp';
+import male23 from '@/assets/day-people/portraits/male-23.webp';
+import male24 from '@/assets/day-people/portraits/male-24.webp';
+import male25 from '@/assets/day-people/portraits/male-25.webp';
+import male26 from '@/assets/day-people/portraits/male-26.webp';
+import female1 from '@/assets/day-people/portraits/female-01.webp';
+import female2 from '@/assets/day-people/portraits/female-02.webp';
+import female3 from '@/assets/day-people/portraits/female-03.webp';
+import female4 from '@/assets/day-people/portraits/female-04.webp';
+import female5 from '@/assets/day-people/portraits/female-05.webp';
+import female6 from '@/assets/day-people/portraits/female-06.webp';
+import female7 from '@/assets/day-people/portraits/female-07.webp';
+import female8 from '@/assets/day-people/portraits/female-08.webp';
+import female9 from '@/assets/day-people/portraits/female-09.webp';
+import female10 from '@/assets/day-people/portraits/female-10.webp';
+import female11 from '@/assets/day-people/portraits/female-11.webp';
+import female12 from '@/assets/day-people/portraits/female-12.webp';
+import female13 from '@/assets/day-people/portraits/female-13.webp';
+import female14 from '@/assets/day-people/portraits/female-14.webp';
+import female15 from '@/assets/day-people/portraits/female-15.webp';
+import female16 from '@/assets/day-people/portraits/female-16.webp';
+import female17 from '@/assets/day-people/portraits/female-17.webp';
+import female18 from '@/assets/day-people/portraits/female-18.webp';
+import female19 from '@/assets/day-people/portraits/female-19.webp';
+import female20 from '@/assets/day-people/portraits/female-20.webp';
+import female21 from '@/assets/day-people/portraits/female-21.webp';
+import female22 from '@/assets/day-people/portraits/female-22.webp';
+import female23 from '@/assets/day-people/portraits/female-23.webp';
+import female24 from '@/assets/day-people/portraits/female-24.webp';
+import female25 from '@/assets/day-people/portraits/female-25.webp';
+import female26 from '@/assets/day-people/portraits/female-26.webp';
+export const dayPortraits = {
+  male: [male1, male2, male3, male4, male5, male6, male7, male8, male9, male10, male11, male12, male13, male14, male15, male16, male17, male18, male19, male20, male21, male22, male23, male24, male25, male26],
+  female: [female1, female2, female3, female4, female5, female6, female7, female8, female9, female10, female11, female12, female13, female14, female15, female16, female17, female18, female19, female20, female21, female22, female23, female24, female25, female26],
+};

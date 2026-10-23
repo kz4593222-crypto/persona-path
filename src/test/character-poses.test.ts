@@ -24,7 +24,7 @@ describe('Day card framing', () => {
       if (!image) continue;
       const frame = dayFrame(image);
       expect(frame, `${gender} day ${day}`).toBeDefined();
-      expect(frame!.y).toBeGreaterThanOrEqual(0);
+      expect(frame?.y).toBeGreaterThanOrEqual(0);
     }
   });
 });
