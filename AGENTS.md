@@ -18,5 +18,5 @@
 - Keep health-choice illustrations in a dedicated browser-safe gender mapping and scope the two-column image-card styling to the health question so other questionnaires retain their layout and validation.
 - Render the presentation-only plan and simulated preparation at the questionnaire completion child, using the existing scoped answers; keep day scheduling in a browser-safe module and do not imply that exercise generation exists.
 - Assign illustration assets to distinct screen slots in the browser-safe character pose module; keep day portraits in the separate browser-safe day-portraits mapping so onboarding and goal art stay untouched.
-- Frame day-card characters with precomputed per-image frames (`src/lib/day-framing.ts`, keyed by asset filename) so each pose is zoomed as far as possible without cropping any visible limb; regenerate a frame whenever a day image changes.
+- Frame day-card portraits purely in CSS: each image is height-fitted, anchored to the card's bottom edge and faded into the box colour, so any waist-up portrait added to the day-portraits mapping rises out of the box without per-image frame data.
 - Persist only day completion in Cloud through server functions scoped by a server-issued HttpOnly device capability; deny direct Data API access and keep questionnaire answers in memory to avoid storing sensitive measurements.

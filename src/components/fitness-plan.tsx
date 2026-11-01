@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowLeft, ArrowRight, Check, Leaf, Zap, Flame, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
