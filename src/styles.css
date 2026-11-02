@@ -392,11 +392,10 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
 .plan-tint-5 { background: var(--plan-tint-5); }
 .plan-tint-6 { background: var(--plan-tint-6); }
 .plan-tint-7 { background: var(--plan-tint-7); }
-/* Picture slot spans the card's full inner height without changing the card size; per-image frames keep every shown body part inside. */
-.plan-day-thumb { position: relative; flex-shrink: 0; align-self: stretch; width: 96px; min-height: 84px; margin: -12px 0 -12px -4px; overflow: hidden; display: grid; place-items: center; pointer-events: none; }
-.plan-day-thumb-fade { mask-image: linear-gradient(to bottom, var(--goal-on-color) 72%, transparent 100%); }
-.plan-day-thumb img { position: absolute; left: var(--frame-x, 0%); top: var(--frame-y, 0%); width: var(--frame-w, 100%); height: auto; max-width: none; }
-.plan-day-thumb img.plan-day-thumb-rest { left: 6px; top: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: contain; }
+/* Picture slot spans the card's full height without changing the card size. Each person stands on the card's bottom edge and their lower body fades into the box colour, so they appear to rise out of it. */
+.plan-day-thumb { position: relative; flex-shrink: 0; align-self: stretch; width: 108px; min-height: 84px; margin: -12px 0 -12px -6px; overflow: hidden; display: grid; place-items: center; pointer-events: none; }
+.plan-day-thumb img.plan-day-thumb-person { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); height: calc(100% - 4px); width: auto; max-width: 100%; object-fit: contain; object-position: center bottom; mask-image: linear-gradient(to bottom, var(--goal-on-color) 66%, transparent 100%); }
+.plan-day-thumb img.plan-day-thumb-rest { position: absolute; left: 6px; top: 6px; width: calc(100% - 12px); height: calc(100% - 12px); object-fit: contain; }
 .plan-day-thumb svg { width: 30px; height: 30px; color: var(--plan-teal); }
 .plan-day-copy { flex: 1; min-width: 0; }
 .plan-day-copy h3 { margin: 0; font-size: 24px; font-weight: 1000; line-height: 1.15; }
@@ -437,7 +436,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   .plan-title { font-size: 52px; }
   .plan-week > h2 { font-size: 30px; }
   .plan-day { min-height: 122px; padding: 14px 18px; gap: 18px; }
-  .plan-day-thumb { width: 108px; margin: -14px 0 -14px -6px; }
+  .plan-day-thumb { width: 122px; margin: -14px 0 -14px -8px; }
   .plan-day-copy h3 { font-size: 28px; }
   .plan-loading-hero > img { width: 140px; height: 175px; }
   .plan-loading-hero h1 { font-size: 31px; }
