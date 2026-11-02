@@ -45,3 +45,11 @@
 - [x] Create 22 goal-specific transparent fitness portraits for both profiles.
 - [x] Integrate clean high-resolution images while preserving card design.
 - [x] Verify all goals, selection and navigation for both profiles.
+
+# Dashboard sections
+- [ ] Bottom tabs on the plan dashboard: Workout, Recovery, Community, Me.
+- [ ] Workout tab shows all 30 days (current plan).
+- [ ] Recovery tab: diet and sleep plan from height, weight, age and other answers.
+- [ ] Community tab: shared group chat for all users with questions and replies; "Your questions" and "Your replies" views.
+- [ ] Me tab: change name (once per 30 days), upload profile photo, show details, plan start date and days completed.
+- [ ] Show sender name and photo on community messages; tapping opens the enlarged photo only.
