@@ -44,4 +44,4 @@
 # High-quality goal imagery
 - [x] Create 22 goal-specific transparent fitness portraits for both profiles.
 - [x] Integrate clean high-resolution images while preserving card design.
-- [ ] Verify all goals, selection and navigation for both profiles.
+- [x] Verify all goals, selection and navigation for both profiles.
