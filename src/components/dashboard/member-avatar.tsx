@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { initials, type MemberCard } from '@/lib/account';
-import { avatarSrc } from './use-account';
+import { useAvatarSrc } from './use-account';
 
 export function AvatarCircle({ member, size = 'md' }: { member: Pick<MemberCard, 'display_name' | 'avatar_path' | 'avatar_url'>; size?: 'sm' | 'md' | 'lg' }) {
-  const src = avatarSrc(member);
+  const src = useAvatarSrc(member);
   return <span className={`member-avatar member-avatar-${size}`}>
     {src ? <img src={src} alt="" loading="lazy" referrerPolicy="no-referrer" /> : <span>{initials(member.display_name)}</span>}
   </span>;
@@ -13,7 +13,7 @@ export function AvatarCircle({ member, size = 'md' }: { member: Pick<MemberCard,
 /** Name + photo that open only the enlarged photo when tapped. */
 export function MemberPhotoButton({ member, showName = true, size = 'md' }: { member: MemberCard; showName?: boolean; size?: 'sm' | 'md' | 'lg' }) {
   const [open, setOpen] = useState(false);
-  const src = avatarSrc(member);
+  const src = useAvatarSrc(member);
   return <>
     <button type="button" className="member-photo-button" onClick={() => setOpen(true)} aria-label={`View ${member.display_name}'s photo`}>
       <AvatarCircle member={member} size={size} />

@@ -35,8 +35,20 @@ export function useAccount() {
   return useQuery(accountQuery);
 }
 
-export function avatarSrc(member: Pick<MemberCard, 'avatar_path' | 'avatar_url'> | null | undefined) {
-  if (!member) return null;
-  if (member.avatar_path) return supabase.storage.from('avatars').getPublicUrl(member.avatar_path).data.publicUrl;
-  return member.avatar_url;
+// Photos live in a private bucket that only signed-in members can read, so each
+// uploaded photo is shown through a short-lived signed link.
+export function useAvatarSrc(member: Pick<MemberCard, 'avatar_path' | 'avatar_url'> | null | undefined) {
+  const path = member?.avatar_path ?? null;
+  const signed = useQuery({
+    queryKey: ['avatar', path],
+    enabled: Boolean(path),
+    staleTime: 45 * 60_000,
+    queryFn: async () => {
+      const { data, error } = await supabase.storage.from('avatars').createSignedUrl(path!, 3600);
+      if (error) throw error;
+      return data.signedUrl;
+    },
+  });
+  if (path) return signed.data ?? null;
+  return member?.avatar_url ?? null;
 }
