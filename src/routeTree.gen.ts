@@ -10,14 +10,28 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContinueRouteImport } from './routes/continue'
 import { Route as NextRouteImport } from './routes/next'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as ContinueIndexRouteImport } from './routes/continue.index'
 import { Route as ContinueStepRouteImport } from './routes/continue.$step'
+import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardRecoveryRouteImport } from './routes/_authenticated/dashboard.recovery'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContinueRoute = ContinueRouteImport.update({
@@ -30,6 +44,11 @@ const NextRoute = NextRouteImport.update({
   path: '/next',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const ContinueIndexRoute = ContinueIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -40,39 +59,91 @@ const ContinueStepRoute = ContinueStepRouteImport.update({
   path: '/$step',
   getParentRoute: () => ContinueRoute,
 } as any)
+const AuthenticatedDashboardIndexRoute =
+  AuthenticatedDashboardIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardRecoveryRoute =
+  AuthenticatedDashboardRecoveryRouteImport.update({
+    id: '/recovery',
+    path: '/recovery',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/continue': typeof ContinueRouteWithChildren
   '/next': typeof NextRoute
+  '/dashboard': typeof AuthenticatedDashboardRouteWithChildren
   '/continue/$step': typeof ContinueStepRoute
   '/continue/': typeof ContinueIndexRoute
+  '/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
+  '/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/next': typeof NextRoute
   '/continue/$step': typeof ContinueStepRoute
   '/continue': typeof ContinueIndexRoute
+  '/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
+  '/dashboard': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
   '/continue': typeof ContinueRouteWithChildren
   '/next': typeof NextRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteWithChildren
   '/continue/$step': typeof ContinueStepRoute
   '/continue/': typeof ContinueIndexRoute
+  '/_authenticated/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
+  '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/continue' | '/next' | '/continue/$step' | '/continue/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/continue'
+    | '/next'
+    | '/dashboard'
+    | '/continue/$step'
+    | '/continue/'
+    | '/dashboard/recovery'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/next' | '/continue/$step' | '/continue'
+  to:
+    | '/'
+    | '/auth'
+    | '/next'
+    | '/continue/$step'
+    | '/continue'
+    | '/dashboard/recovery'
+    | '/dashboard'
   id:
-    '__root__' | '/' | '/continue' | '/next' | '/continue/$step' | '/continue/'
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/continue'
+    | '/next'
+    | '/_authenticated/dashboard'
+    | '/continue/$step'
+    | '/continue/'
+    | '/_authenticated/dashboard/recovery'
+    | '/_authenticated/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
   ContinueRoute: typeof ContinueRouteWithChildren
   NextRoute: typeof NextRoute
 }
@@ -84,6 +155,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/continue': {
@@ -100,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NextRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/continue/': {
       id: '/continue/'
       path: '/'
@@ -114,8 +206,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContinueStepRouteImport
       parentRoute: typeof ContinueRoute
     }
+    '/_authenticated/dashboard/': {
+      id: '/_authenticated/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/recovery': {
+      id: '/_authenticated/dashboard/recovery'
+      path: '/recovery'
+      fullPath: '/dashboard/recovery'
+      preLoaderRoute: typeof AuthenticatedDashboardRecoveryRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
   }
 }
+
+interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardRecoveryRoute: typeof AuthenticatedDashboardRecoveryRoute
+  AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
+}
+
+const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
+  {
+    AuthenticatedDashboardRecoveryRoute: AuthenticatedDashboardRecoveryRoute,
+    AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+  }
+
+const AuthenticatedDashboardRouteWithChildren =
+  AuthenticatedDashboardRoute._addFileChildren(
+    AuthenticatedDashboardRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRouteWithChildren
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface ContinueRouteChildren {
   ContinueStepRoute: typeof ContinueStepRoute
@@ -133,6 +266,8 @@ const ContinueRouteWithChildren = ContinueRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
   ContinueRoute: ContinueRouteWithChildren,
   NextRoute: NextRoute,
 }

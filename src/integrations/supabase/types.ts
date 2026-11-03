@@ -14,6 +14,113 @@ export type Database = {
   }
   public: {
     Tables: {
+      community_messages: {
+        Row: {
+          body: string
+          created_at: string
+          id: string
+          reply_to_id: string | null
+          user_id: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: string
+          reply_to_id?: string | null
+          user_id?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: string
+          reply_to_id?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_messages_reply_to_id_fkey"
+            columns: ["reply_to_id"]
+            isOneToOne: false
+            referencedRelation: "community_messages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "community_messages_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fitness_profiles: {
+        Row: {
+          answers: Json
+          gender: string
+          goal: string
+          plan_started_at: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          answers?: Json
+          gender: string
+          goal: string
+          plan_started_at?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          answers?: Json
+          gender?: string
+          goal?: string
+          plan_started_at?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fitness_profiles_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      message_likes: {
+        Row: {
+          created_at: string
+          message_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          message_id: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          message_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "message_likes_message_id_fkey"
+            columns: ["message_id"]
+            isOneToOne: false
+            referencedRelation: "community_messages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "message_likes_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       plan_progress: {
         Row: {
           completed_at: string
@@ -32,6 +139,36 @@ export type Database = {
           day?: number
           device_hash?: string
           profile_key?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_path: string | null
+          avatar_url: string | null
+          created_at: string
+          display_name: string
+          id: string
+          name_changed_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          avatar_path?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string
+          id: string
+          name_changed_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          avatar_path?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string
+          id?: string
+          name_changed_at?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
