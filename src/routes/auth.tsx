@@ -37,7 +37,7 @@ function AuthPage() {
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const finishing = useRef(false);
-  const pending = typeof window === "undefined" ? null : readPendingPlan();
+  const [pending, setPending] = useState(false);
 
   const finish = async () => {
     if (finishing.current) return;
@@ -55,6 +55,7 @@ function AuthPage() {
   };
 
   useEffect(() => {
+    setPending(Boolean(readPendingPlan()));
     supabase.auth.getUser().then(({ data }) => { if (data.user) void finish(); });
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_IN" && session) void finish();
