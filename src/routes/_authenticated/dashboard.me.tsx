@@ -53,12 +53,12 @@ function MeTab() {
 
   const saveName = async (event: FormEvent) => {
     event.preventDefault();
-    if (!validDisplayName(name)) return toast.error("Your name needs 2 to 40 characters.");
-    if (name.trim() === profile.display_name) return setEditing(false);
+    if (!validDisplayName(name)) { toast.error("Your name needs 2 to 40 characters."); return; }
+    if (name.trim() === profile.display_name) { setEditing(false); return; }
     setSavingName(true);
     const { error } = await supabase.from("profiles").update({ display_name: name.trim() }).eq("id", account.userId);
     setSavingName(false);
-    if (error) return toast.error(error.message.includes("NAME_LOCKED") ? `You can change your name once every ${NAME_LOCK_DAYS} days.` : "Your name was not saved. Try again.");
+    if (error) { toast.error(error.message.includes("NAME_LOCKED") ? `You can change your name once every ${NAME_LOCK_DAYS} days.` : "Your name was not saved. Try again."); return; }
     setEditing(false);
     toast.success("Name updated");
     await refresh();
