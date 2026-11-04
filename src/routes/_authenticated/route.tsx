@@ -8,5 +8,6 @@ export const Route = createFileRoute("/_authenticated")({
     if (!data.user) throw redirect({ to: "/auth" });
     return { user: data.user };
   },
+  pendingComponent: () => <main className="plan-loading"><p role="status">Loading…</p></main>,
   component: () => <Outlet />,
 });
