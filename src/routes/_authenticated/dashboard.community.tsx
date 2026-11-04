@@ -58,7 +58,7 @@ function LikeButton({ message, userId }: { message: CommunityMessage; userId: st
   </button>;
 }
 
-function Quote({ message }: { message?: CommunityMessage }) {
+function Quote({ message }: { message: CommunityMessage | undefined }) {
   return <div className="chat-quote">
     <strong>{message?.author?.display_name ?? "Original message"}</strong>
     <span>{message ? message.body : "This message was removed."}</span>

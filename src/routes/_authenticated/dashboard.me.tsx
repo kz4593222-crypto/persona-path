@@ -68,15 +68,15 @@ function MeTab() {
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
-    if (!PHOTO_TYPES.includes(file.type)) return toast.error("Please choose a JPG, PNG or WebP photo.");
-    if (file.size > 5 * 1024 * 1024) return toast.error("Please choose a photo under 5 MB.");
+    if (!PHOTO_TYPES.includes(file.type)) { toast.error("Please choose a JPG, PNG or WebP photo."); return; }
+    if (file.size > 5 * 1024 * 1024) { toast.error("Please choose a photo under 5 MB."); return; }
     setUploading(true);
     const ext = file.type === "image/png" ? "png" : file.type === "image/webp" ? "webp" : "jpg";
     const path = `${account.userId}/photo-${Date.now()}.${ext}`;
     const { error: uploadError } = await supabase.storage.from("avatars").upload(path, file, { contentType: file.type });
-    if (uploadError) { setUploading(false); return toast.error("Your photo was not uploaded. Try again."); }
+    if (uploadError) { setUploading(false); toast.error("Your photo was not uploaded. Try again."); return; }
     const { error } = await supabase.from("profiles").update({ avatar_path: path }).eq("id", account.userId);
-    if (error) { setUploading(false); await supabase.storage.from("avatars").remove([path]); return toast.error("Your photo was not saved. Try again."); }
+    if (error) { setUploading(false); await supabase.storage.from("avatars").remove([path]); toast.error("Your photo was not saved. Try again."); return; }
     if (profile.avatar_path) void supabase.storage.from("avatars").remove([profile.avatar_path]);
     setUploading(false);
     toast.success("Photo updated");

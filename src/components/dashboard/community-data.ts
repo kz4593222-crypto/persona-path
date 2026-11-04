@@ -12,7 +12,7 @@ export type CommunityMessage = {
   author: MemberCard | null;
   likes: { user_id: string }[];
 };
-export type Thread = { message: CommunityMessage; original?: CommunityMessage; responses: CommunityMessage[] };
+export type Thread = { message: CommunityMessage; original: CommunityMessage | undefined; responses: CommunityMessage[] };
 
 const SELECT = 'id, user_id, reply_to_id, body, created_at, author:profiles(id, display_name, avatar_url, avatar_path), likes:message_likes(user_id)';
 const FEED_SIZE = 150;
