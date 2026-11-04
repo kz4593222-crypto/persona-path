@@ -22,4 +22,12 @@ describe("App routing", () => {
       expect(router.matchRoutes(`/continue/${step}`).at(-1)?.routeId).toBe('/continue/$step');
     }
   });
+  it("matches the sign-in page and every dashboard section", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/auth").at(-1)?.routeId).toBe("/auth");
+    expect(router.matchRoutes("/dashboard").at(-1)?.routeId).toBe("/_authenticated/dashboard/");
+    for (const section of ["recovery", "community", "me"]) {
+      expect(router.matchRoutes(`/dashboard/${section}`).at(-1)?.routeId).toBe(`/_authenticated/dashboard/${section}`);
+    }
+  });
 });
