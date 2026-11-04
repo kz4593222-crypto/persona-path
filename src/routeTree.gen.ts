@@ -19,6 +19,7 @@ import { Route as ContinueIndexRouteImport } from './routes/continue.index'
 import { Route as ContinueStepRouteImport } from './routes/continue.$step'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
 import { Route as AuthenticatedDashboardCommunityRouteImport } from './routes/_authenticated/dashboard.community'
+import { Route as AuthenticatedDashboardMeRouteImport } from './routes/_authenticated/dashboard.me'
 import { Route as AuthenticatedDashboardRecoveryRouteImport } from './routes/_authenticated/dashboard.recovery'
 
 const IndexRoute = IndexRouteImport.update({
@@ -72,6 +73,12 @@ const AuthenticatedDashboardCommunityRoute =
     path: '/community',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
+const AuthenticatedDashboardMeRoute =
+  AuthenticatedDashboardMeRouteImport.update({
+    id: '/me',
+    path: '/me',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 const AuthenticatedDashboardRecoveryRoute =
   AuthenticatedDashboardRecoveryRouteImport.update({
     id: '/recovery',
@@ -88,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/continue/$step': typeof ContinueStepRoute
   '/continue/': typeof ContinueIndexRoute
   '/dashboard/community': typeof AuthenticatedDashboardCommunityRoute
+  '/dashboard/me': typeof AuthenticatedDashboardMeRoute
   '/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
   '/continue/$step': typeof ContinueStepRoute
   '/continue': typeof ContinueIndexRoute
   '/dashboard/community': typeof AuthenticatedDashboardCommunityRoute
+  '/dashboard/me': typeof AuthenticatedDashboardMeRoute
   '/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
 }
@@ -112,6 +121,7 @@ export interface FileRoutesById {
   '/continue/$step': typeof ContinueStepRoute
   '/continue/': typeof ContinueIndexRoute
   '/_authenticated/dashboard/community': typeof AuthenticatedDashboardCommunityRoute
+  '/_authenticated/dashboard/me': typeof AuthenticatedDashboardMeRoute
   '/_authenticated/dashboard/recovery': typeof AuthenticatedDashboardRecoveryRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/continue/$step'
     | '/continue/'
     | '/dashboard/community'
+    | '/dashboard/me'
     | '/dashboard/recovery'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
     | '/continue/$step'
     | '/continue'
     | '/dashboard/community'
+    | '/dashboard/me'
     | '/dashboard/recovery'
     | '/dashboard'
   id:
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
     | '/continue/$step'
     | '/continue/'
     | '/_authenticated/dashboard/community'
+    | '/_authenticated/dashboard/me'
     | '/_authenticated/dashboard/recovery'
     | '/_authenticated/dashboard/'
   fileRoutesById: FileRoutesById
@@ -233,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardCommunityRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
+    '/_authenticated/dashboard/me': {
+      id: '/_authenticated/dashboard/me'
+      path: '/me'
+      fullPath: '/dashboard/me'
+      preLoaderRoute: typeof AuthenticatedDashboardMeRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
     '/_authenticated/dashboard/recovery': {
       id: '/_authenticated/dashboard/recovery'
       path: '/recovery'
@@ -245,6 +265,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedDashboardRouteChildren {
   AuthenticatedDashboardCommunityRoute: typeof AuthenticatedDashboardCommunityRoute
+  AuthenticatedDashboardMeRoute: typeof AuthenticatedDashboardMeRoute
   AuthenticatedDashboardRecoveryRoute: typeof AuthenticatedDashboardRecoveryRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
@@ -252,6 +273,7 @@ interface AuthenticatedDashboardRouteChildren {
 const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
   {
     AuthenticatedDashboardCommunityRoute: AuthenticatedDashboardCommunityRoute,
+    AuthenticatedDashboardMeRoute: AuthenticatedDashboardMeRoute,
     AuthenticatedDashboardRecoveryRoute: AuthenticatedDashboardRecoveryRoute,
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   }
