@@ -14,7 +14,7 @@ export type CommunityMessage = {
 };
 export type Thread = { message: CommunityMessage; original: CommunityMessage | undefined; responses: CommunityMessage[] };
 
-const SELECT = 'id, user_id, reply_to_id, body, created_at, author:profiles(id, display_name, avatar_url, avatar_path), likes:message_likes(user_id)';
+const SELECT = 'id, user_id, reply_to_id, body, created_at, author:profiles!community_messages_user_id_fkey(id, display_name, avatar_url, avatar_path), likes:message_likes!message_likes_message_id_fkey(user_id)';
 const FEED_SIZE = 150;
 
 async function fetchByIds(ids: string[]) {
