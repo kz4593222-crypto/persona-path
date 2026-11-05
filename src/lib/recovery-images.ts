@@ -8,7 +8,7 @@ import breakfast from "@/assets/recovery/meal-breakfast.webp";
 import lunch from "@/assets/recovery/meal-lunch.webp";
 import snack from "@/assets/recovery/meal-snack.webp";
 import dinner from "@/assets/recovery/meal-dinner.webp";
-import type { Gender } from "@/lib/character-poses";
+import type { Gender } from "@/lib/goals";
 
 export const recoveryHero: Record<Gender, string> = { male: heroMale, female: heroFemale };
 export const recoverySleep: Record<Gender, string> = { male: sleepMale, female: sleepFemale };
