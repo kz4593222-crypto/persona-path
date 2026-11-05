@@ -21,6 +21,8 @@ export const Route = createFileRoute("/_authenticated/dashboard/me")({
     { name: "description", content: "Your name, photo, body details and how long you've been on your plan." },
     { property: "og:title", content: "Me — Profile and Progress" },
     { property: "og:description", content: "Your profile and plan progress." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
   ] }),
   component: MeTab,
 });

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
-import { Dumbbell, Moon, MessagesSquare, UserRound, ArrowRight, Loader2 } from "lucide-react";
+import { Dumbbell, HeartPulse, UsersRound, UserRound, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { accountQuery, useAccount } from "@/components/dashboard/use-account";
 
@@ -19,10 +19,10 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
 });
 
 const tabs = [
-  { to: "/dashboard", label: "Workout", icon: Dumbbell, exact: true },
-  { to: "/dashboard/recovery", label: "Recovery", icon: Moon, exact: false },
-  { to: "/dashboard/community", label: "Community", icon: MessagesSquare, exact: false },
-  { to: "/dashboard/me", label: "Me", icon: UserRound, exact: false },
+  { to: "/dashboard", label: "Workout", icon: Dumbbell, exact: true, tone: "workout" },
+  { to: "/dashboard/recovery", label: "Recovery", icon: HeartPulse, exact: false, tone: "recovery" },
+  { to: "/dashboard/community", label: "Community", icon: UsersRound, exact: false, tone: "community" },
+  { to: "/dashboard/me", label: "Me", icon: UserRound, exact: false, tone: "me" },
 ] as const;
 
 function DashboardLayout() {
@@ -37,8 +37,8 @@ function DashboardLayout() {
       </main> : <Outlet />}
     </div>
     <nav className="dash-nav" aria-label="Dashboard sections">
-      {tabs.map(({ to, label, icon: Icon, exact }) => <Link key={to} to={to} className="dash-nav-link" activeProps={{ className: "is-active", "aria-current": "page" }} activeOptions={{ exact, includeSearch: false }}>
-        <Icon aria-hidden="true" /><span>{label}</span>
+      {tabs.map(({ to, label, icon: Icon, exact, tone }) => <Link key={to} to={to} className={`dash-nav-link dash-nav-${tone}`} activeProps={{ className: "is-active", "aria-current": "page" }} activeOptions={{ exact, includeSearch: false }}>
+        <span className="dash-nav-icon"><Icon aria-hidden="true" /></span><span>{label}</span>
       </Link>)}
     </nav>
   </div>;

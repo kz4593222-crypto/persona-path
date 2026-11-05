@@ -12,6 +12,8 @@ export const Route = createFileRoute("/_authenticated/dashboard/recovery")({
     { name: "description", content: "Your daily calories, meals, water and sleep schedule for faster recovery." },
     { property: "og:title", content: "Recovery — Diet & Sleep Plan" },
     { property: "og:description", content: "Personal diet and sleep plan for faster recovery." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
   ] }),
   component: RecoveryTab,
 });
