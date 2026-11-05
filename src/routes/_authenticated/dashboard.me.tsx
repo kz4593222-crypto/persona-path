@@ -1,13 +1,14 @@
-import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Camera, CalendarDays, Flame, Loader2, LogOut, Pencil, RotateCcw, Lock } from "lucide-react";
+import { Activity, CalendarDays, Camera, CheckCircle2, ChevronRight, Clock, Dumbbell, Flame, HeartPulse, Home, Loader2, Lock, LogOut, Moon, Pencil, Ruler, RotateCcw, Scale, Target, UserRound, Cake, Gauge } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { useAccount } from "@/components/dashboard/use-account";
 import { MemberPhotoButton } from "@/components/dashboard/member-avatar";
+import { AvatarCropDialog } from "@/components/dashboard/avatar-crop-dialog";
 import { usePlanProgress } from "@/components/use-plan-progress";
 import { currentPlanDay, daysSinceStart, nextNameChange, validDisplayName, NAME_LOCK_DAYS } from "@/lib/account";
 import { goals } from "@/lib/goals";
