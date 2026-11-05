@@ -36,16 +36,18 @@ function CommunityTab() {
   useCommunityLive();
   if (!account) return null;
   return <main className={`plan-page dash-page community-page community-${view}`}>
-    <p className="plan-eyebrow">Members helping members</p>
-    <h1 className="plan-title">Community</h1>
+    <header className="dash-header">
+      <p className="plan-eyebrow">Members helping members</p>
+      <h1 className="plan-title">Community</h1>
+    </header>
+    <nav className="community-views" aria-label="Community views">
+      {views.map(({ id, label, icon: Icon }) => <Link key={id} to="/dashboard/community" search={{ view: id }} className={view === id ? "is-active" : ""} aria-current={view === id ? "page" : undefined}><Icon aria-hidden="true" />{label}</Link>)}
+    </nav>
     {view === "chat" && <ChatFeed userId={account.userId} onReply={setReplyTo} />}
     {view !== "chat" && <MyThreads userId={account.userId} kind={view} />}
-    <div className="community-dock">
-      {view === "chat" && <Composer userId={account.userId} replyTo={replyTo} onClearReply={() => setReplyTo(null)} />}
-      <nav className="community-views" aria-label="Community views">
-        {views.map(({ id, label, icon: Icon }) => <Link key={id} to="/dashboard/community" search={{ view: id }} className={view === id ? "is-active" : ""} aria-current={view === id ? "page" : undefined}><Icon aria-hidden="true" />{label}</Link>)}
-      </nav>
-    </div>
+    {view === "chat" && <div className="community-dock">
+      <Composer userId={account.userId} replyTo={replyTo} onClearReply={() => setReplyTo(null)} />
+    </div>}
   </main>;
 }
 
