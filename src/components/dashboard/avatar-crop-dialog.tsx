@@ -44,7 +44,7 @@ export function AvatarCropDialog({ src, onCancel, onSave }: { src: string | null
       </div>
       <div className="crop-zoom">
         <button type="button" onClick={() => step(-0.2)} aria-label="Zoom out"><ZoomOut aria-hidden="true" /></button>
-        <Slider value={[zoom]} min={MIN_ZOOM} max={MAX_ZOOM} step={0.01} onValueChange={([value]) => setZoom(value)} aria-label="Zoom" className="crop-slider" />
+        <Slider value={[zoom]} min={MIN_ZOOM} max={MAX_ZOOM} step={0.01} onValueChange={([value]) => setZoom(value ?? MIN_ZOOM)} aria-label="Zoom" className="crop-slider" />
         <button type="button" onClick={() => step(0.2)} aria-label="Zoom in"><ZoomIn aria-hidden="true" /></button>
       </div>
       {error && <p className="crop-error" role="alert">{error}</p>}
