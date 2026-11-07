@@ -537,6 +537,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   --dash-tone-recovery: var(--goal-posture);
   --dash-tone-community: var(--goal-hiit);
   --dash-tone-me: var(--goal-core);
+  --dash-nav-active: var(--goal-posture);
   --dash-protein: var(--goal-chest);
   --dash-carbs: var(--goal-weight-loss);
   --dash-fat: var(--goal-strength);
