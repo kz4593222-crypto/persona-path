@@ -537,6 +537,7 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
   --dash-tone-recovery: var(--goal-posture);
   --dash-tone-community: var(--goal-hiit);
   --dash-tone-me: var(--goal-core);
+  --dash-nav-active: var(--goal-posture);
   --dash-protein: var(--goal-chest);
   --dash-carbs: var(--goal-weight-loss);
   --dash-fat: var(--goal-strength);
@@ -558,9 +559,9 @@ body { margin: 0; font-family: var(--font-app); letter-spacing: 0; }
 .dash-nav-me { --tone: var(--dash-tone-me); }
 .dash-nav-icon { display: grid; place-items: center; width: 52px; height: 30px; border-radius: 999px; transition: background-color 180ms, transform 180ms; }
 .dash-nav-icon svg { width: 22px; height: 22px; stroke-width: 1.9; transition: fill 180ms; }
-.dash-nav-link.is-active { color: var(--tone); font-weight: 900; }
-.dash-nav-link.is-active .dash-nav-icon { background: color-mix(in oklab, var(--tone) 14%, transparent); transform: translateY(-1px); }
-.dash-nav-link.is-active svg { stroke-width: 2.3; fill: color-mix(in oklab, var(--tone) 28%, transparent); }
+.dash-nav-link.is-active { color: var(--dash-nav-active); font-weight: 900; }
+.dash-nav-link.is-active .dash-nav-icon { background: color-mix(in oklab, var(--dash-nav-active) 16%, transparent); transform: translateY(-1px); }
+.dash-nav-link.is-active svg { stroke-width: 2.3; fill: color-mix(in oklab, var(--dash-nav-active) 32%, transparent); }
 .dash-nav-link:focus-visible { outline: 2px solid var(--tone); outline-offset: 2px; border-radius: 14px; }
 
 .dash-empty { width: min(100%, 570px); margin: 0 auto; padding: 72px 22px; display: flex; flex-direction: column; gap: 14px; text-align: left; }
