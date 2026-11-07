@@ -37,7 +37,6 @@ import male_calendar_15 from '@/assets/poses/male-calendar-15.jpg';
 import male_calendar_22 from '@/assets/poses/male-calendar-22.jpg';
 import male_calendar_31 from '@/assets/poses/male-calendar-31.jpg';
 import male_calendar_32 from '@/assets/poses/male-calendar-32.jpg';
-import female_onboarding_1 from '@/assets/poses/female-onboarding-01.jpg';
 import female_onboarding_2 from '@/assets/poses/female-onboarding-02.jpg';
 import female_onboarding_3 from '@/assets/poses/female-onboarding-03.jpg';
 import female_onboarding_4 from '@/assets/poses/female-onboarding-04.jpg';
@@ -81,14 +80,14 @@ const restImages = [rest_coffee_1, rest_coffee_2, rest_tea_3, rest_coffee_4];
 export const characterPoses = {
   male: {
     goals: {'abs': male_onboarding_2, 'weight-loss': male_onboarding_3, 'weight-gain': male_onboarding_4, 'strength': male_onboarding_13, 'keep-fit': male_onboarding_34, 'chest': male_onboarding_31, 'flexibility': male_onboarding_8, 'hiit': male_onboarding_9, 'posture': male_onboarding_10, 'v-taper': male_onboarding_11, 'kegel': male_onboarding_30},
-    questions: {'equipment:gym': male_onboarding_36, 'equipment:home-equipment': male_onboarding_14, 'equipment:bodyweight': male_onboarding_15, 'age': male_onboarding_7, 'height': male_onboarding_33, 'weight': male_onboarding_18, 'health': male_onboarding_19, 'activity:sitting': male_onboarding_20, 'activity:light': male_onboarding_21, 'activity:moderate': male_onboarding_22, 'activity:very': male_onboarding_23, 'fitness:beginner': male_onboarding_24, 'fitness:intermediate': male_onboarding_25, 'fitness:advanced': male_onboarding_26, 'sleep': male_onboarding_27, 'time': male_onboarding_28, 'complete': male_onboarding_12, 'gender': male_onboarding_1},
+    questions: {'equipment:gym': male_onboarding_36, 'equipment:home-equipment': male_onboarding_14, 'equipment:bodyweight': male_onboarding_15, 'age': male_onboarding_7, 'height': male_onboarding_33, 'weight': male_onboarding_18, 'health': male_onboarding_19, 'activity:sitting': male_onboarding_20, 'activity:light': male_onboarding_21, 'activity:moderate': male_onboarding_22, 'activity:very': male_onboarding_23, 'fitness:beginner': male_onboarding_24, 'fitness:intermediate': male_onboarding_25, 'fitness:advanced': male_onboarding_26, 'sleep': male_onboarding_27, 'time': male_onboarding_28, 'complete': male_onboarding_12, 'gender': male_gender},
     loading: male_calendar_9, summary: male_calendar_14,
     rest: [male_calendar_15, male_calendar_22, male_calendar_31, male_calendar_32],
     days: dayPortraits.male,
   },
   female: {
     goals: {'abs': female_onboarding_2, 'weight-loss': female_onboarding_3, 'weight-gain': female_onboarding_4, 'strength': female_onboarding_13, 'keep-fit': female_onboarding_34, 'chest': female_onboarding_31, 'flexibility': female_onboarding_8, 'hiit': female_onboarding_9, 'posture': female_onboarding_10, 'v-taper': female_onboarding_11, 'kegel': female_onboarding_30},
-    questions: {'equipment:gym': female_onboarding_36, 'equipment:home-equipment': female_onboarding_14, 'equipment:bodyweight': female_onboarding_15, 'age': female_onboarding_7, 'height': female_onboarding_33, 'weight': female_onboarding_18, 'health': female_onboarding_19, 'activity:sitting': female_onboarding_20, 'activity:light': female_onboarding_21, 'activity:moderate': female_onboarding_22, 'activity:very': female_onboarding_23, 'fitness:beginner': female_onboarding_24, 'fitness:intermediate': female_onboarding_25, 'fitness:advanced': female_onboarding_26, 'sleep': female_onboarding_27, 'time': female_onboarding_28, 'complete': female_onboarding_12, 'gender': female_onboarding_1},
+    questions: {'equipment:gym': female_onboarding_36, 'equipment:home-equipment': female_onboarding_14, 'equipment:bodyweight': female_onboarding_15, 'age': female_onboarding_7, 'height': female_onboarding_33, 'weight': female_onboarding_18, 'health': female_onboarding_19, 'activity:sitting': female_onboarding_20, 'activity:light': female_onboarding_21, 'activity:moderate': female_onboarding_22, 'activity:very': female_onboarding_23, 'fitness:beginner': female_onboarding_24, 'fitness:intermediate': female_onboarding_25, 'fitness:advanced': female_onboarding_26, 'sleep': female_onboarding_27, 'time': female_onboarding_28, 'complete': female_onboarding_12, 'gender': female_gender},
     loading: female_calendar_9, summary: female_calendar_14,
     rest: [female_calendar_15, female_calendar_22, female_calendar_31, female_calendar_32],
     days: dayPortraits.female,
