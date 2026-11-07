@@ -1,7 +1,8 @@
 import { dayPortraits } from './day-portraits';
 import type { Gender } from './goals';
 // Each asset belongs to exactly one screen slot, never a reusable exercise category.
-import male_onboarding_1 from '@/assets/poses/male-onboarding-01.jpg';
+import male_gender from '@/assets/poses/male-gender.png';
+import female_gender from '@/assets/poses/female-gender.png';
 import male_onboarding_2 from '@/assets/poses/male-onboarding-02.jpg';
 import male_onboarding_3 from '@/assets/poses/male-onboarding-03.jpg';
 import male_onboarding_4 from '@/assets/poses/male-onboarding-04.jpg';
